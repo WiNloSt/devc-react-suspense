@@ -1,3 +1,7 @@
 html {
   font-family: Helvetica, Arial, sans-serif;
 }
+
+button {
+  all: unset;
+}

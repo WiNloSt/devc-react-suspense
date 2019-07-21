@@ -1,5 +1,5 @@
+import '../src/setup'
 import { configure } from '@storybook/react'
-import '../src/App.css'
 
 function loadStories() {
   const allStories = require.context('../src/', true, /story\.js/)
