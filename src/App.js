@@ -1,24 +1,34 @@
 import './setup'
 import React from 'react'
+import styled from 'styled-components'
+
+import { Nav } from './components/Nav'
+import { Sidebar } from './components/Sidebar'
+import { Timeline } from './components/Timeline'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav />
+      <Content>
+        <Sidebar />
+        <Timeline />
+      </Content>
     </div>
   )
 }
 
 export default App
+
+const Content = styled.div`
+  padding-top: 12px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-right: 200px;
+  display: flex;
+
+  > *:first-child {
+    flex: 1;
+    margin-right: 12px;
+  }
+`
