@@ -1,20 +1,25 @@
 import './setup'
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Nav } from './components/Nav'
 import { Sidebar } from './components/Sidebar'
 import { Timeline } from './components/Timeline'
+import { Settings } from './components/Settings'
 
 function App() {
   return (
-    <div>
-      <Nav />
-      <Content>
-        <Sidebar />
-        <Timeline />
-      </Content>
-    </div>
+    <Router>
+      <div>
+        <Nav />
+        <Content>
+          <Route path="/" component={Sidebar}></Route>
+          <Route path="/" exact component={Timeline}></Route>
+          <Route path="/settings" component={Settings}></Route>
+        </Content>
+      </div>
+    </Router>
   )
 }
 
