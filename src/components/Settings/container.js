@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react'
 
 import { Settings } from '.'
@@ -7,7 +8,8 @@ export function SettingsContainer() {
 
   function setForm(fieldName) {
     return value =>
-      setFormState(formState => ({
+      // eslint-disable-next-line no-undef
+      setFormStat(formState => ({
         ...formState,
         [fieldName]: value
       }))

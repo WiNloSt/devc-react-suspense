@@ -1,21 +1,22 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { Card } from '../Card'
 import SettingsContentContainer from '../SettingsContent'
+import { MySuspense } from '../MySuspense'
 
 export const Settings = ({ form, setForm, setFormState }) => {
   return (
     <div style={{ flex: 1 }}>
       <Card style={{ padding: '10px 20px 20px' }}>
         <Header>General Account Settings</Header>
-        <Suspense fallback="loading...">
+        <MySuspense fallback="loading..." errorFallback="wow">
           <SettingsContentContainer
             form={form}
             setForm={setForm}
             setFormState={setFormState}
           />
-        </Suspense>
+        </MySuspense>
       </Card>
     </div>
   )
