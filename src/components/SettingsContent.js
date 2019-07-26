@@ -8,21 +8,33 @@ export default SettingsContentContainer
 function SettingsContentContainer({ form, setForm, setFormState }) {
   const [loading, setLoading] = useState(true)
 
+  const [promise, setPromise] = useState(Promise.resolve())
   useEffect(() => {
-    settingsService.get().then(result => {
+    const promise = settingsService.get().then(result => {
       setFormState(result)
       setLoading(false)
     })
-  })
+    setPromise(promise)
+  }, [setFormState])
 
-  return <SettingsContent loading={loading} form={form} setForm={setForm} />
-}
-
-function SettingsContent({ loading, form, setForm }) {
-  if (loading) {
-    return <>loading...</>
+  function suspend() {
+    if (!form) {
+      throw promise
+    }
   }
 
+  return (
+    <SettingsContent
+      suspend={suspend}
+      loading={loading}
+      form={form}
+      setForm={setForm}
+    />
+  )
+}
+
+function SettingsContent({ suspend, loading, form, setForm }) {
+  suspend()
   return (
     <SettingsContainer>
       <SettingsRow
