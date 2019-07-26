@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { action } from '@storybook/addon-actions'
+
 import { SettingsRow } from '../SettingsRow'
 import { Card } from '../Card'
 
@@ -8,17 +10,29 @@ export const Settings = () => (
     <Card style={{ padding: '10px 20px 20px' }}>
       <Header>General Account Settings</Header>
       <SettingsContainer>
-        <SettingsRow label="Name" value="John Wick" actionLabel="Edit" />
-        <SettingsRow label="Username" value="JohnW" actionLabel="Edit" />
+        <SettingsRow
+          label="Name"
+          value="John Wick"
+          actionLabel="Edit"
+          onChange={action('onChange')}
+        />
+        <SettingsRow
+          label="Username"
+          value="JohnW"
+          actionLabel="Edit"
+          onChange={action('onChange')}
+        />
         <SettingsRow
           label="Contact"
           value="john.w@gmail.com"
           actionLabel="Edit"
+          onChange={action('onChange')}
         />
         <SettingsRow
           label="Ad account contact"
           value="john.w@gmail.com"
           actionLabel="Edit"
+          onChange={action('onChange')}
         />
       </SettingsContainer>
     </Card>

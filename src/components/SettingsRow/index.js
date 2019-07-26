@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export function SettingsRow({ label, value, actionLabel }) {
+export function SettingsRow({ label, value, actionLabel, onChange }) {
+  const [isEditing, setIsEditing] = useState(false)
+  const [draftValue, setDraftValue] = useState(value)
+  if (isEditing) {
+    return (
+      <SettingsRowContainer>
+        <span>{label}</span>
+        <input
+          value={draftValue}
+          onChange={e => setDraftValue(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            onChange(value)
+            setIsEditing(false)
+          }}
+        >
+          Save
+        </button>
+      </SettingsRowContainer>
+    )
+  }
   return (
-    <SettingsRowContainer>
+    <SettingsRowContainer onClick={() => setIsEditing(true)}>
       <span>{label}</span>
       <span>{value}</span>
       <span>{actionLabel}</span>
