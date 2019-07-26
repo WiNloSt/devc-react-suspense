@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Settings } from '.'
+import { settingsService } from '../../services/settings'
 
 export function SettingsContainer() {
   const [formState, setFormState] = useState({
@@ -8,6 +9,15 @@ export function SettingsContainer() {
     username: null,
     contact: null,
     adsContact: null
+  })
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    settingsService.get().then(result => {
+      setFormState(result)
+      setLoading(false)
+    })
   })
 
   function setForm(fieldName) {
@@ -18,5 +28,5 @@ export function SettingsContainer() {
       }))
   }
 
-  return <Settings form={formState} setForm={setForm} />
+  return <Settings loading={loading} form={formState} setForm={setForm} />
 }

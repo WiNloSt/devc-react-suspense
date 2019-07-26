@@ -39,6 +39,9 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@types/react": "^16.8.23",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "husky": ">=1",
     "lint-staged": ">=8",
     "prettier": "^1.18.2"
