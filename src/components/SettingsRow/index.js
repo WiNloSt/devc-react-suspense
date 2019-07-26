@@ -14,7 +14,7 @@ export function SettingsRow({ label, value, actionLabel, onChange }) {
         />
         <button
           onClick={() => {
-            onChange(value)
+            onChange(draftValue)
             setIsEditing(false)
           }}
         >

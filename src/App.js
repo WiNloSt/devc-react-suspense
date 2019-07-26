@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { Nav } from './components/Nav'
 import { Sidebar } from './components/Sidebar'
 import { Timeline } from './components/Timeline'
-import { Settings } from './components/Settings'
+import { SettingsContainer } from './components/Settings/container'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Content>
           <Route path="/" component={Sidebar}></Route>
           <Route path="/" exact component={Timeline}></Route>
-          <Route path="/settings" component={Settings}></Route>
+          <Route path="/settings" component={SettingsContainer}></Route>
         </Content>
       </div>
     </Router>

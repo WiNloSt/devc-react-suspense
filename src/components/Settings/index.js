@@ -1,38 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
-import { action } from '@storybook/addon-actions'
 
 import { SettingsRow } from '../SettingsRow'
 import { Card } from '../Card'
 
-export const Settings = () => (
+export const Settings = ({ form, setForm }) => (
   <div style={{ flex: 1 }}>
     <Card style={{ padding: '10px 20px 20px' }}>
       <Header>General Account Settings</Header>
       <SettingsContainer>
         <SettingsRow
           label="Name"
-          value="John Wick"
+          value={form.name}
           actionLabel="Edit"
-          onChange={action('onChange')}
+          onChange={setForm('name')}
         />
         <SettingsRow
           label="Username"
-          value="JohnW"
+          value={form.username}
           actionLabel="Edit"
-          onChange={action('onChange')}
+          onChange={setForm('username')}
         />
         <SettingsRow
           label="Contact"
-          value="john.w@gmail.com"
+          value={form.contact}
           actionLabel="Edit"
-          onChange={action('onChange')}
+          onChange={setForm('contact')}
         />
         <SettingsRow
           label="Ad account contact"
-          value="john.w@gmail.com"
+          value={form.adsContact}
           actionLabel="Edit"
-          onChange={action('onChange')}
+          onChange={setForm('adsContact')}
         />
       </SettingsContainer>
     </Card>
