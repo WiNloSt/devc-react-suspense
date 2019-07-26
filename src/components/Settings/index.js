@@ -1,59 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { SettingsRow } from '../SettingsRow'
 import { Card } from '../Card'
+import SettingsContentContainer from '../SettingsContent'
 
-export const Settings = ({ loading, form, setForm }) => {
-  if (loading) {
-    return (
-      <div style={{ flex: 1 }}>
-        <Card style={{ padding: '10px 20px 20px' }}>
-          <Header>General Account Settings</Header>
-          loading...
-        </Card>
-      </div>
-    )
-  }
+export const Settings = ({ form, setForm, setFormState }) => {
   return (
     <div style={{ flex: 1 }}>
       <Card style={{ padding: '10px 20px 20px' }}>
         <Header>General Account Settings</Header>
-        <SettingsContainer>
-          <SettingsRow
-            label="Name"
-            value={form.name}
-            actionLabel="Edit"
-            onChange={setForm('name')}
-          />
-          <SettingsRow
-            label="Username"
-            value={form.username}
-            actionLabel="Edit"
-            onChange={setForm('username')}
-          />
-          <SettingsRow
-            label="Contact"
-            value={form.contact}
-            actionLabel="Edit"
-            onChange={setForm('contact')}
-          />
-          <SettingsRow
-            label="Ad account contact"
-            value={form.adsContact}
-            actionLabel="Edit"
-            onChange={setForm('adsContact')}
-          />
-        </SettingsContainer>
+        <SettingsContentContainer
+          form={form}
+          setForm={setForm}
+          setFormState={setFormState}
+        />
       </Card>
     </div>
   )
 }
+
 const Header = styled.h2`
   font-size: 16px;
 `
 
-const SettingsContainer = styled.ul`
+export const SettingsContainer = styled.ul`
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
 
