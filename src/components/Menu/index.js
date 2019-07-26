@@ -2,10 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Menu = styled.ul`
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular',
-    sans-serif;
   font-size: 13px;
-  list-style: none;
 `
 Menu.Item = Item
 

@@ -6,7 +6,7 @@ import { Icon } from './../Icon/index'
 import { Card } from '../Card'
 
 export const Post = () => (
-  <Card>
+  <Card style={{ maxWidth: 500 }}>
     <PostContainer>
       <Header />
       <Content style={{ marginTop: 6, marginBottom: 10 }} />
@@ -16,6 +16,7 @@ export const Post = () => (
 )
 
 const PostContainer = styled.div`
+  font-family: Helvetica, Arial, sans-serif;
   padding-top: 12px;
   padding-left: 12px;
   padding-right: 12px;
@@ -157,8 +158,6 @@ const ActionsContainer = styled.div`
   color: #606770;
   font-size: 13px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular',
-    sans-serif;
   border-top: 1px solid #dadde1;
 
   > div {
